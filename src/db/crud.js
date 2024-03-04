@@ -4,7 +4,6 @@ const {desc} = require("drizzle-orm");
 
 async function createLead({email}) {
     const db = await client.getDrizzleClient();
-    console.log(email)
     return db.insert(schemas.LeadTable).values({
         email: email
     }).returning({timestamp: schemas.LeadTable.createdAt});
